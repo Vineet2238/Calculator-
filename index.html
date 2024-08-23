@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        button{
+            width: 40px;
+            background-color: rgb(9, 245, 127);
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px rgb(216, 206, 194);
+        }
+        button:hover{
+            background-color: bisque;
+        }
+        table{
+            border-radius: 5px;
+            padding: 10px;
+            line-height: 30px;
+            border: 0px solid black;
+            box-shadow: 1px 1px 5px rgb(6, 3, 46);
+            background:linear-gradient(skyblue, silver, pink, rgb(80, 218, 103));
+        }
+         #equal{
+            background-color: blueviolet;
+        }
+        .A{
+            background-color: rgb(248, 72, 116);
+        }
+        #equal:hover{
+            background-color: greenyellow;
+        }
+        input{
+            background-color: blanchedalmond;
+        }
+        input:hover{
+            background-color: rgb(104, 176, 209);
+        }
+    </style>
+    <script>
+
+        function btnpress(x){
+            document.getElementById("t1").value+=x;
+
+        }
+
+        function cleardata(){
+            document.getElementById("t1").value="";
+        }
+       
+        function result(){
+            var a=document.getElementById("t1").value;
+            var b=eval(a);
+            document.getElementById("t1").value=b;
+        }
+
+        function backpress(){
+            var a=document.getElementById("t1").value;
+            var b=a.length;
+            var c=a.substr(0,b-1);
+            document.getElementById("t1").value=c;
+        }
+
+    </script>
+</head>
+<body>
+    <table border="0" cellspacing="0" align="center">
+
+        <tr>
+            <td colspan="4"><input id="t1" readonly placeholder="0"/></td>
+        </tr>
+        <tr>
+            <td><button class="A" onclick="cleardata()">AC</button></td>
+            <td><button class="A" onclick="backpress()">&larr;</button></td>
+            <td><button onclick="btnpress('%')" class="A">%</button></td>
+            <td><button onclick="btnpress('/')" class="A">/</button></td>
+        </tr>
+       
+        <tr>
+            <td><button onclick="btnpress('7')">7</button></td>
+            <td><button onclick="btnpress('8')">8</button></td>
+            <td><button onclick="btnpress('9')">9</button></td>
+            <td><button onclick="btnpress('*')" class="A">*</button></td>
+        </tr>
+         <tr>
+            <td><button onclick="btnpress('4')">4</button></td>
+            <td><button onclick="btnpress('5')">5</button></td>
+            <td><button onclick="btnpress('6')">6</button></td>
+            <td><button onclick="btnpress('-')" class="A">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="btnpress('1')">1</button></td>
+            <td><button onclick="btnpress('2')">2</button></td>
+            <td><button onclick="btnpress('3')">3</button></td>
+            <td><button onclick="btnpress('+')" class="A">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="btnpress('0')">0</button></td>
+            <td><button onclick="btnpress('.')">.</button></td>
+            <td><button onclick="btnpress('00')">00</button></td>
+            <td><button id="equal" onclick="result()">=</button></td>
+        </tr>
+
+    </table>
+</body>
+</html>
